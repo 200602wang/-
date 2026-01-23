@@ -1,10 +1,10 @@
-# -
+#洗漱台
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>适老化洗手池设计 - 洗漱台剖面图</title>
+    <title>适老化洗手池施工指南 - 工人专用版</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,7 +15,7 @@
         }
         
         body {
-            background-color: #f5f9ff;
+            background-color: #f8fafc;
             color: #333;
             line-height: 1.6;
             padding: 20px;
@@ -25,81 +25,90 @@
         
         .header {
             text-align: center;
-            padding: 30px 20px;
-            margin-bottom: 30px;
-            background: linear-gradient(to right, #4a6fa5, #2c3e5a);
+            padding: 25px 20px;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #2c5282, #4a6fa5);
             color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(44, 62, 90, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(44, 82, 130, 0.2);
         }
         
         .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            font-size: 2.2rem;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
         }
         
-        .header p {
-            font-size: 1.2rem;
-            max-width: 800px;
+        .header-subtitle {
+            font-size: 1.1rem;
+            max-width: 900px;
             margin: 0 auto 15px;
             opacity: 0.9;
         }
         
-        .elderly-badge {
-            display: inline-block;
-            background-color: #ff9900;
+        .worker-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f39c12;
             color: white;
-            padding: 10px 25px;
-            border-radius: 30px;
+            padding: 8px 20px;
+            border-radius: 25px;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-top: 10px;
-            box-shadow: 0 3px 8px rgba(255, 153, 0, 0.3);
+            box-shadow: 0 3px 8px rgba(243, 156, 18, 0.3);
         }
         
-        .main-content {
+        /* 主内容区域 - 三维模型和剖面图 */
+        .model-section-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            gap: 25px;
+            margin-bottom: 30px;
         }
         
         @media (max-width: 1100px) {
-            .main-content {
+            .model-section-container {
                 grid-template-columns: 1fr;
             }
         }
         
-        .model-section {
+        .model-section, .section-container {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: 600px;
+            display: flex;
+            flex-direction: column;
         }
         
         .section-title {
             background-color: #4a6fa5;
             color: white;
-            padding: 20px;
-            font-size: 1.4rem;
+            padding: 18px 20px;
+            font-size: 1.3rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-shrink: 0;
         }
         
         .section-title i {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
         }
         
-        .model-container {
+        .model-container, .section-image-container {
             width: 100%;
-            height: 550px;
+            height: 100%;
             position: relative;
             background-color: #f0f5ff;
+            flex-grow: 1;
+            overflow: hidden;
         }
         
         .model-container iframe {
@@ -108,48 +117,36 @@
             border: none;
         }
         
-        .model-enlarge-btn {
-            position: absolute;
-            bottom: 15px;
-            right: 15px;
-            background: rgba(255, 153, 0, 0.9);
-            color: white;
+        /* Sketchfab嵌入包装器样式 */
+        .sketchfab-embed-wrapper {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        
+        .sketchfab-embed-wrapper iframe {
+            width: 100%;
+            height: 100%;
             border: none;
-            padding: 8px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            z-index: 10;
         }
         
-        .model-enlarge-btn:hover {
-            background: rgba(255, 153, 0, 1);
-        }
-        
-        .section-container {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        .sketchfab-embed-wrapper p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            margin: 0;
+            padding: 5px;
+            font-size: 12px;
+            text-align: center;
         }
         
         .section-image-container {
-            width: 100%;
-            height: 550px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #f8f9fa;
-            position: relative;
             cursor: pointer;
-            overflow: hidden;
-        }
-        
-        .section-image-container:hover .image-overlay {
-            opacity: 1;
         }
         
         .section-image-container img {
@@ -157,10 +154,6 @@
             max-height: 100%;
             object-fit: contain;
             transition: transform 0.3s ease;
-        }
-        
-        .section-image-container:hover img {
-            transform: scale(1.02);
         }
         
         .image-overlay {
@@ -181,192 +174,217 @@
             padding: 20px;
         }
         
-        .image-overlay i {
-            font-size: 3rem;
-            margin-bottom: 15px;
+        .section-image-container:hover .image-overlay {
+            opacity: 1;
         }
         
-        .image-placeholder {
-            text-align: center;
-            padding: 30px;
-            color: #666;
+        .section-image-container:hover img {
+            transform: scale(1.02);
         }
         
-        .image-placeholder i {
-            font-size: 4rem;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-        
-        .elderly-challenges {
-            margin-top: 30px;
+        /* 统一的其他区域大小 */
+        .uniform-section {
             background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            height: auto;
+            min-height: 500px;
+            margin-bottom: 25px;
         }
         
-        .challenges-title {
+        .section-heading {
             color: #2c3e5a;
-            font-size: 1.8rem;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid #ff9900;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #ff9900;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
         
-        .challenges-grid {
+        /* 施工重点区域 */
+        .construction-highlights {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
         
-        .challenge-item {
+        .highlight-item {
             background: #f8fafc;
-            padding: 25px;
-            border-radius: 12px;
+            padding: 20px;
+            border-radius: 10px;
             border-left: 5px solid #4a6fa5;
-            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .challenge-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-        }
-        
-        .challenge-item h4 {
+        .highlight-item h4 {
             color: #2c3e5a;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
         
-        .challenge-item h4 i {
-            color: #ff9900;
-        }
-        
-        .challenge-item p {
+        .highlight-item p {
             color: #5a6c7d;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            font-size: 1rem;
         }
         
-        .solution {
+        .material-tag {
+            display: inline-block;
             background-color: #e8f4fc;
+            color: #2c5282;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #b8d4f0;
+        }
+        
+        /* 材料规格表格 */
+        .materials-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        .materials-table th {
+            background-color: #4a6fa5;
+            color: white;
             padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            border-left: 3px solid #27ae60;
+            text-align: left;
+            font-weight: 600;
         }
         
-        .solution strong {
-            color: #27ae60;
+        .materials-table td {
+            padding: 14px;
+            border-bottom: 1px solid #eaeaea;
         }
         
-        .info-sections {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+        .materials-table tr:nth-child(even) {
+            background-color: #f8fafc;
         }
         
-        @media (max-width: 768px) {
-            .info-sections {
-                grid-template-columns: 1fr;
-            }
+        .materials-table tr:hover {
+            background-color: #f0f5ff;
         }
         
-        .info-box {
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        /* 施工步骤 */
+        .construction-steps {
+            counter-reset: step-counter;
+            margin-top: 20px;
         }
         
-        .info-box.construction {
-            border-top: 6px solid #e74c3c;
-        }
-        
-        .info-box.materials {
-            border-top: 6px solid #27ae60;
-        }
-        
-        .info-box h3 {
-            font-size: 1.6rem;
-            margin-bottom: 25px;
-            color: #2c3e5a;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        
-        .note-list {
-            list-style-type: none;
-        }
-        
-        .note-list li {
-            padding: 15px 0;
-            padding-left: 35px;
-            border-bottom: 1px solid #f0f0f0;
+        .step-item {
             position: relative;
+            padding: 20px 0 20px 70px;
+            border-bottom: 1px dashed #ddd;
+            margin-bottom: 10px;
         }
         
-        .note-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .note-list li:before {
-            content: "✓";
-            color: #4a6fa5;
-            font-size: 1.2rem;
-            font-weight: bold;
+        .step-item:before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
             position: absolute;
             left: 0;
             top: 15px;
-        }
-        
-        .elderly-highlight {
-            background-color: #fff8e1;
-            padding: 3px 8px;
-            border-radius: 4px;
+            background-color: #4a6fa5;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-weight: bold;
-            color: #d68910;
-        }
-        
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 20px;
-        }
-        
-        .material-item {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #27ae60;
-        }
-        
-        .material-item h4 {
-            color: #2c3e5a;
-            margin-bottom: 10px;
             font-size: 1.2rem;
         }
         
-        .footer-note {
-            background-color: #fff8e1;
-            border-left: 5px solid #f39c12;
-            padding: 25px;
-            border-radius: 12px;
-            margin-top: 40px;
-            font-size: 1rem;
-            color: #7d6608;
+        .step-title {
+            color: #2c3e5a;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
         }
         
-        .footer-note strong {
-            color: #d68910;
+        .step-tools {
+            background-color: #fff8e1;
+            padding: 10px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-size: 0.95rem;
+        }
+        
+        .step-tools i {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+        
+        /* 安装要点 */
+        .installation-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .point-item {
+            background: #f8fafc;
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #27ae60;
+        }
+        
+        .point-item h4 {
+            color: #2c3e5a;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .warning {
+            background-color: #fff2f2;
+            border-left: 4px solid #e74c3c;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        
+        .warning-title {
+            color: #e74c3c;
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        /* 工具清单 */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .tool-item {
+            background: #f0f5ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #d1dceb;
+        }
+        
+        .tool-item i {
+            font-size: 2rem;
+            color: #4a6fa5;
+            margin-bottom: 10px;
         }
         
         /* 模态框样式 */
@@ -457,34 +475,6 @@
             background: rgba(0, 0, 0, 0.9);
         }
         
-        .image-info {
-            position: absolute;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
-        
-        .zoom-indicator {
-            position: absolute;
-            top: 20px;
-            left: 30px;
-            background: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .image-error {
-            text-align: center;
-            padding: 30px;
-            color: #666;
-        }
-        
         .section-zoom-btn {
             background: rgba(255, 153, 0, 0.9);
             color: white;
@@ -496,75 +486,107 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            transition: background 0.3s;
+            transition: all 0.3s;
         }
         
         .section-zoom-btn:hover {
             background: rgba(255, 153, 0, 1);
+            transform: scale(1.05);
         }
         
-        .sink-info-box {
-            margin-top: 20px;
+        .image-placeholder {
+            text-align: center;
+            padding: 30px;
+            color: #666;
+        }
+        
+        .image-placeholder i {
+            font-size: 4rem;
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+        
+        .footer-note {
+            background-color: #fff8e1;
+            border-left: 5px solid #f39c12;
             padding: 20px;
-            background: #f0f8ff;
             border-radius: 10px;
-            border-left: 4px solid #4a6fa5;
+            margin-top: 30px;
+            font-size: 0.95rem;
+            color: #7d6608;
         }
         
-        .sink-info-box h4 {
-            color: #2c3e5a;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
+        .footer-note strong {
+            color: #d68910;
+        }
+        
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .uniform-section, .model-section, .section-container {
+                padding: 15px;
+            }
+            
+            .construction-highlights, .installation-points {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-heading {
+                font-size: 1.3rem;
+            }
+        }
+        
+        /* 图片加载状态样式 */
+        .image-loading {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            height: 100%;
+            color: #4a6fa5;
         }
         
-        .sink-info-box ul {
-            padding-left: 20px;
-            color: #5a6c7d;
+        .image-loading i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            animation: spin 1.5s linear infinite;
         }
         
-        .sink-info-box li {
-            margin-bottom: 8px;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
     <div class="header">
-        <h1><i class="fas fa-sink"></i> 适老化洗手池设计与无障碍解决方案</h1>
-        <p>专为老年人设计的三维模型展示与施工指南 | 解决老年人如厕洗漱不便问题</p>
-        <p style="font-size:1rem; margin-top:5px; opacity:0.8;">模型数据：98.7k 三角面 | 49.5k 顶点 | 许可证：CC Attribution</p>
-        <div class="elderly-badge">
-            <i class="fas fa-wheelchair"></i> 无障碍适老化设计
+        <h1><i class="fas fa-tools"></i> 适老化洗手池施工指南</h1>
+        <p class="header-subtitle">工人专用版 - 三维模型、剖面图与施工要点详解</p>
+        <p style="font-size:0.95rem; margin-top:5px; opacity:0.8;">适老化设计 | 无障碍施工 | 材料规格明确 | 施工步骤详细</p>
+        <div class="worker-badge">
+            <i class="fas fa-hard-hat"></i> 施工人员专用指南
         </div>
     </div>
 
-    <div class="main-content">
+    <!-- 三维模型和剖面图区域 - 大小相同 -->
+    <div class="model-section-container">
         <div class="model-section">
             <div class="section-title">
                 <span><i class="fas fa-cube"></i> 三维模型展示</span>
                 <button class="section-zoom-btn" id="enlargeModelBtn">
-                    <i class="fas fa-expand"></i> 放大查看
+                    <i class="fas fa-expand"></i> 全屏查看
                 </button>
             </div>
             <div class="model-container">
-                <iframe id="modelIframe" 
-                        title="适老化洗手池三维模型"
-                        frameborder="0" 
-                        allowfullscreen 
-                        mozallowfullscreen="true" 
-                        webkitallowfullscreen="true" 
-                        allow="autoplay; fullscreen; xr-spatial-tracking" 
-                        xr-spatial-tracking 
-                        execution-while-out-of-viewport 
-                        execution-while-not-rendered 
-                        web-share 
-                        src="https://sketchfab.com/models/dbb26e1513004995ba7d8379e3af0c66/embed?autospin=1&autostart=1&preload=1">
-                </iframe>
-            </div>
-            <div style="padding: 15px; color: #666; font-size: 0.9rem; text-align: center;">
-                使用鼠标拖拽旋转模型，滚轮缩放。点击右上角按钮可全屏查看。
+                <!-- 更新后的三维模型 -->
+                <div class="sketchfab-embed-wrapper"> 
+                    <iframe title="浴室洗手池" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/f4c002003a6b45408c7fd5586e435926/embed?autospin=1&preload=1"> 
+                    </iframe> 
+                    <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> 
+                        <a href="https://sketchfab.com/3d-models/f4c002003a6b45408c7fd5586e435926?utm_medium=embed&utm_campaign=share-popup&utm_content=f4c002003a6b45408c7fd5586e435926" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 浴室洗手池 </a> by 
+                        <a href="https://sketchfab.com/Feng-Che-Shu?utm_medium=embed&utm_campaign=share-popup&utm_content=f4c002003a6b45408c7fd5586e435926" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;"> 风车树下 </a> on 
+                        <a href="https://sketchfab.com?utm_medium=embed&utm_campaign=share-popup&utm_content=f4c002003a6b45408c7fd5586e435926" target="_blank" rel="nofollow" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a>
+                    </p>
+                </div>
             </div>
         </div>
 
@@ -576,26 +598,27 @@
                 </button>
             </div>
             <div class="section-image-container" id="sectionImageContainer">
+                <!-- 图片已更新为您提供的新链接 -->
                 <img id="sectionImage" 
-                     src="https://image2url.com/r2/default/images/1768819927982-247b9674-06f4-422e-8488-77281d523438.png" 
-                     alt="洗漱台剖面图"
+                     src="https://files.imagetourl.net/uploads/1769133403711-4dc6afc0-af5e-4b75-848d-c7278f6f4a6a.png" 
+                     alt="适老化洗漱台剖面图 - 包含尺寸标注和材料说明"
                      onload="handleImageLoad()"
                      onerror="handleImageError()">
                 <div class="image-overlay">
                     <i class="fas fa-search-plus"></i>
-                    <h3>点击查看洗漱台剖面大图</h3>
-                    <p>点击图片或使用右上角按钮放大查看细节</p>
+                    <h3>点击查看详细剖面图</h3>
+                    <p>包含尺寸标注、材料标注和安装要点</p>
                 </div>
-                <div id="loadingMessage" class="image-placeholder" style="display: none; position: absolute;">
-                    <i class="fas fa-spinner fa-spin"></i>
+                <div id="loadingMessage" class="image-loading" style="display: flex; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #f0f5ff;">
+                    <i class="fas fa-spinner"></i>
                     <h3>正在加载洗漱台剖面图...</h3>
                 </div>
-                <div id="errorMessage" class="image-placeholder" style="position: absolute;">
+                <div id="errorMessage" class="image-placeholder" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #f0f5ff;">
                     <i class="fas fa-exclamation-triangle"></i>
                     <h3>洗漱台剖面图加载失败</h3>
-                    <p>无法从链接加载图片</p>
-                    <div style="margin-top: 20px; text-align: left; background: #f0f8ff; padding: 15px; border-radius: 8px;">
-                        <p>解决方法：</p>
+                    <p>请按以下步骤操作：</p>
+                    <div style="margin-top: 15px; text-align: left; background: #f0f8ff; padding: 15px; border-radius: 8px;">
+                        <p><strong>解决方法：</strong></p>
                         <ol style="margin-left: 20px; margin-top: 10px;">
                             <li>将洗漱台剖面图保存为 <strong>section_image.png</strong></li>
                             <li>放入与此HTML文件相同的文件夹中</li>
@@ -604,138 +627,279 @@
                     </div>
                 </div>
             </div>
-            <div style="padding: 15px; color: #666; font-size: 0.9rem; text-align: center;">
-                点击图片可放大查看细节。支持鼠标滚轮缩放和拖拽查看。
-            </div>
-            
-            <div class="sink-info-box">
-                <h4><i class="fas fa-info-circle"></i> 洗漱台剖面图应展示的信息：</h4>
-                <ul>
-                    <li>洗手池内部结构与支撑框架</li>
-                    <li>台面、柜体与墙面的连接方式</li>
-                    <li>给排水管道的预设位置与走向</li>
-                    <li>安全扶手安装位置与承重结构</li>
-                    <li>适老化设计的无障碍空间尺寸</li>
-                    <li>关键部件的详细尺寸标注</li>
-                </ul>
-            </div>
         </div>
     </div>
 
-    <div class="elderly-challenges">
-        <h2 class="challenges-title">
-            <i class="fas fa-exclamation-triangle"></i> 老年人使用洗手池常见困难与解决方案
+    <!-- 施工重点区域 -->
+    <div class="uniform-section">
+        <h2 class="section-heading">
+            <i class="fas fa-exclamation-circle"></i> 施工重点与材料标注
         </h2>
         
-        <div class="challenges-grid">
-            <div class="challenge-item">
-                <h4><i class="fas fa-wheelchair"></i> 轮椅使用者接近困难</h4>
-                <p>传统洗手池下方空间不足，轮椅无法靠近，导致老年人需要费力前倾，增加摔倒风险。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 悬空式设计，台面下方净空高度≥68cm，深度≥48cm，确保轮椅可轻松进入。
+        <div class="construction-highlights">
+            <div class="highlight-item">
+                <h4><i class="fas fa-ruler-combined"></i> 关键尺寸要求</h4>
+                <p><strong>台面高度：</strong>75-80cm（适合坐姿与站姿）</p>
+                <p><strong>下方净空：</strong>高≥68cm，深≥48cm（轮椅可进入）</p>
+                <p><strong>安全扶手：</strong>距地75-85cm，承载力≥135kg</p>
+                <p><strong>前方空间：</strong>直径≥150cm（轮椅回转）</p>
+                <div style="margin-top: 10px;">
+                    <span class="material-tag">304不锈钢扶手</span>
+                    <span class="material-tag">防潮多层板</span>
+                    <span class="material-tag">人造石台面</span>
                 </div>
             </div>
             
-            <div class="challenge-item">
-                <h4><i class="fas fa-ruler-vertical"></i> 高度不适导致腰背劳损</h4>
-                <p>固定高度的洗手池不适合不同身高的老年人，长期使用导致腰背疼痛和疲劳。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 安装高度75-80cm（含台面），镜面可倾斜或高度可调，适应坐姿和站姿使用。
+            <div class="highlight-item">
+                <h4><i class="fas fa-bolt"></i> 水电安装要点</h4>
+                <p><strong>给水管道：</strong>左热右冷，安装防烫伤恒温阀</p>
+                <p><strong>排水管道：</strong>防臭存水弯，坡度1%-2%</p>
+                <p><strong>电源插座：</strong>防水型，距台面30cm以上</p>
+                <p><strong>紧急按钮：</strong>防水型，距地40-50cm</p>
+                <div style="margin-top: 10px;">
+                    <span class="material-tag">PPR给水管</span>
+                    <span class="material-tag">PVC排水管</span>
+                    <span class="material-tag">IP66防水插座</span>
                 </div>
             </div>
             
-            <div class="challenge-item">
-                <h4><i class="fas fa-hand-paper"></i> 手部力量不足操作困难</h4>
-                <p>传统旋转式水龙头对手部关节炎患者操作困难，无法精确控制水温和流量。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 采用单杠杆或感应式龙头，减少操作力度，并安装防烫伤恒温阀。
+            <div class="highlight-item">
+                <h4><i class="fas fa-shield-alt"></i> 安全施工要求</h4>
+                <p><strong>圆角处理：</strong>所有台面边缘R≥10mm圆角</p>
+                <p><strong>防滑地面：</strong>防滑系数≥0.6，无积水</p>
+                <p><strong>牢固固定：</strong>柜体与墙体使用膨胀螺栓固定</p>
+                <p><strong>无障碍设计：</strong>无门槛，无尖锐凸起</p>
+                <div style="margin-top: 10px;">
+                    <span class="material-tag">圆角修边条</span>
+                    <span class="material-tag">防滑地砖</span>
+                    <span class="material-tag">M10膨胀螺栓</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="warning">
+            <div class="warning-title">
+                <i class="fas fa-exclamation-triangle"></i> 重要安全提示
+            </div>
+            <p>1. 所有安全扶手必须固定于承重墙或实心墙体，严禁固定于轻质隔墙</p>
+            <p>2. 恒温阀最高出水温度设定不得超过49℃，防止烫伤</p>
+            <p>3. 紧急呼叫按钮必须连接至24小时有人值守的护理站</p>
+            <p>4. 所有电气安装必须由持证电工操作，符合安全规范</p>
+        </div>
+    </div>
+
+    <!-- 材料规格表 -->
+    <div class="uniform-section">
+        <h2 class="section-heading">
+            <i class="fas fa-clipboard-list"></i> 材料清单与规格
+        </h2>
+        
+        <table class="materials-table">
+            <thead>
+                <tr>
+                    <th width="20%">材料名称</th>
+                    <th width="25%">规格型号</th>
+                    <th width="20%">技术要求</th>
+                    <th width="35%">施工注意事项</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>洗手池柜体</strong></td>
+                    <td>防潮实木多层板，厚度≥18mm</td>
+                    <td>E0级环保标准，防水涂层</td>
+                    <td>悬空安装，底部离地≥68cm，使用M8膨胀螺栓固定于墙体</td>
+                </tr>
+                <tr>
+                    <td><strong>人造石台面</strong></td>
+                    <td>厚度≥12mm，浅色系</td>
+                    <td>抗菌涂层，边缘R10mm圆角</td>
+                    <td>与柜体使用专用胶粘接，台面与墙面缝隙≤3mm，用防霉硅胶密封</td>
+                </tr>
+                <tr>
+                    <td><strong>安全扶手</strong></td>
+                    <td>304不锈钢，直径35-40mm</td>
+                    <td>亚光防滑处理，承载力≥135kg</td>
+                    <td>固定于承重墙，距墙间隙3.5-4.5cm，使用M10膨胀螺栓，间距≤40cm</td>
+                </tr>
+                <tr>
+                    <td><strong>单杠杆龙头</strong></td>
+                    <td>陶瓷阀芯，低铅铜主体</td>
+                    <td>开启角度≤90°，操作力≤5N</td>
+                    <td>冷热水管左热右冷，安装防烫伤恒温阀，阀前加装角阀</td>
+                </tr>
+                <tr>
+                    <td><strong>排水组件</strong></td>
+                    <td>防臭存水弯，PVC材质</td>
+                    <td>水封深度≥50mm，排水管径≥50mm</td>
+                    <td>排水坡度1%-2%，存水弯下方留检修口，连接处用专用胶密封</td>
+                </tr>
+                <tr>
+                    <td><strong>辅助照明</strong></td>
+                    <td>LED感应灯带，IP65防水</td>
+                    <td>色温4000K，照度≥150lx</td>
+                    <td>安装于台面下方，离地55-60cm，感应范围1-2m，连接至开关面板</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 施工步骤 -->
+    <div class="uniform-section">
+        <h2 class="section-heading">
+            <i class="fas fa-list-ol"></i> 施工步骤详解
+        </h2>
+        
+        <div class="construction-steps">
+            <div class="step-item">
+                <div class="step-title">第一步：现场定位与放线</div>
+                <p>根据设计图纸在墙面标出洗手池中心线、台面高度线（75-80cm）、安全扶手位置线（75-85cm）和柜体安装线。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>激光水平仪、卷尺、墨斗、记号笔
                 </div>
             </div>
             
-            <div class="challenge-item">
-                <h4><i class="fas fa-balance-scale"></i> 缺乏支撑增加摔倒风险</h4>
-                <p>洗手池周边缺乏安全扶手，老年人在洗漱时无处借力，容易失去平衡。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 两侧安装L型安全扶手，承载力≥135kg，表面防滑处理，提供稳定支撑。
+            <div class="step-item">
+                <div class="step-title">第二步：水电管线预埋</div>
+                <p>按定位开槽预埋冷热水管（左热右冷）、排水管（φ50mm）、电源线（2.5mm²）和紧急呼叫线。水管试压0.8MPa保持30分钟无渗漏。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>开槽机、PPR热熔器、PVC胶、试压泵
                 </div>
             </div>
             
-            <div class="challenge-item">
-                <h4><i class="fas fa-eye"></i> 视力下降导致使用不便</h4>
-                <p>老年人视力下降，难以看清传统水龙头位置、皂液器，易造成使用错误。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 高对比度色彩设计，感应式自动出水，语音提示功能，台面下方增加照明。
+            <div class="step-item">
+                <div class="step-title">第三步：墙体加固与柜体安装</div>
+                <p>在柜体固定位置安装加固板，使用M8膨胀螺栓将柜体固定于墙体。检查柜体水平度，误差≤2mm。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>冲击钻、水平尺、扳手、螺丝刀
                 </div>
             </div>
             
-            <div class="challenge-item">
-                <h4><i class="fas fa-first-aid"></i> 紧急情况无法求助</h4>
-                <p>老年人在洗手间发生意外时，无法及时呼叫帮助，延误救援时间。</p>
-                <div class="solution">
-                    <strong>适老化解决方案：</strong> 安装防水紧急呼叫按钮，连接至护理站或家人手机，配备延迟响应防止误触。
+            <div class="step-item">
+                <div class="step-title">第四步：台面安装与打磨</div>
+                <p>将人造石台面放置于柜体上，调整水平后使用专用胶固定。对台面边缘进行R10mm圆角打磨抛光。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>角磨机、抛光机、结构胶枪、水平尺
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">第五步：五金件与安全扶手安装</div>
+                <p>安装单杠杆龙头、皂液器，连接冷热水管。安装安全扶手，使用M10膨胀螺栓固定于承重墙，测试承载力。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>扳手、管钳、冲击钻、扭矩扳手
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">第六步：电气与辅助设施安装</div>
+                <p>安装防水插座、感应灯带和紧急呼叫按钮。连接线路，测试各项功能正常。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>电工钳、螺丝刀、万用表、测电笔
+                </div>
+            </div>
+            
+            <div class="step-item">
+                <div class="step-title">第七步：收边密封与清洁</div>
+                <p>使用防霉硅胶对台面与墙面接缝、柜体与地面接缝进行密封。清洁现场，检查所有功能。</p>
+                <div class="step-tools">
+                    <i class="fas fa-toolbox"></i> <strong>使用工具：</strong>硅胶枪、刮板、清洁剂、抹布
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="info-sections">
-        <div class="info-box construction">
-            <h3><i class="fas fa-tools"></i> 适老化施工关键注意事项</h3>
-            <ul class="note-list">
-                <li><strong>无障碍空间规划</strong>：洗手池前方预留直径≥150cm的轮椅回转空间，侧面接近空间≥80cm。<span class="elderly-highlight">适老化重点</span></li>
-                <li><strong>安全扶手安装</strong>：使用膨胀螺栓固定于承重墙，高度75-85cm，距墙间隙3.5-4.5cm。<span class="elderly-highlight">适老化重点</span></li>
-                <li><strong>防滑地面处理</strong>：地面使用防滑系数≥0.6的防滑砖，排水坡度1%-2%，确保无积水。</li>
-                <li><strong>水温安全控制</strong>：安装防烫伤恒温阀，最高出水温度不超过49℃，避免烫伤风险。</li>
-                <li><strong>紧急呼叫系统</strong>：洗手池旁安装防水紧急呼叫按钮，高度距地40-50cm，连接至护理站。</li>
-                <li><strong>圆角安全处理</strong>：所有台面边缘做圆角处理（R≥10mm），避免尖角造成伤害。</li>
-                <li><strong>辅助照明配置</strong>：台面下方安装感应灯带，避免阴影，提高夜间使用安全性。</li>
-            </ul>
+    <!-- 安装要点与工具 -->
+    <div class="uniform-section">
+        <h2 class="section-heading">
+            <i class="fas fa-cogs"></i> 安装要点与工具清单
+        </h2>
+        
+        <div class="installation-points">
+            <div class="point-item">
+                <h4><i class="fas fa-anchor"></i> 安全扶手安装要点</h4>
+                <p>1. 必须固定于实心墙或承重墙，钻孔深度≥70mm</p>
+                <p>2. 使用M10膨胀螺栓，每个扶手至少4个固定点</p>
+                <p>3. 安装后测试：施加135kg垂直向下力，无松动、变形</p>
+                <p>4. 扶手表面为亚光防滑处理，直径35-40mm</p>
+            </div>
+            
+            <div class="point-item">
+                <h4><i class="fas fa-tint"></i> 给排水安装要点</h4>
+                <p>1. 冷热水管间距150mm，左热右冷</p>
+                <p>2. 安装恒温阀，设定最高温度49℃</p>
+                <p>3. 排水管坡度1%-2%，存水弯水封≥50mm</p>
+                <p>4. 所有接口严密，通水试验无渗漏</p>
+            </div>
+            
+            <div class="point-item">
+                <h4><i class="fas fa-lightbulb"></i> 电气安装要点</h4>
+                <p>1. 电源插座为IP66防水型，带防溅盒</p>
+                <p>2. 紧急呼叫按钮连接至24小时值班室</p>
+                <p>3. 感应灯带照度≥150lx，感应距离1-2m</p>
+                <p>4. 所有线路穿管保护，接地可靠</p>
+            </div>
         </div>
-
-        <div class="info-box materials">
-            <h3><i class="fas fa-clipboard-list"></i> 适老化专用材料说明</h3>
-            <div class="materials-grid">
-                <div class="material-item">
-                    <h4><i class="fas fa-gem"></i> 台面材料</h4>
-                    <p><strong>优选材料：</strong>人造石（亚克力）、陶瓷<br>
-                    <strong>适老化要求：</strong>浅色系提高对比度，抗菌涂层，边缘圆角处理。</p>
-                </div>
-                <div class="material-item">
-                    <h4><i class="fas fa-box"></i> 柜体材料</h4>
-                    <p><strong>优选材料：</strong>防潮实木多层板、不锈钢<br>
-                    <strong>适老化要求：</strong>悬空设计，无尖锐门把手，E0级环保标准。</p>
-                </div>
-                <div class="material-item">
-                    <h4><i class="fas fa-faucet"></i> 五金配件</h4>
-                    <p><strong>关键部件：</strong>单杠杆龙头、恒温阀、安全扶手<br>
-                    <strong>适老化要求：</strong>304不锈钢材质，亚光防滑处理，把手长度≥10cm。</p>
-                </div>
-                <div class="material-item">
-                    <h4><i class="fas fa-paint-roller"></i> 表面处理</h4>
-                    <p><strong>柜体涂层：</strong>抗菌烤漆、防指纹涂层<br>
-                    <strong>适老化要求：</strong>高对比度色彩，防眩光哑光表面，易清洁。</p>
-                </div>
+        
+        <h3 style="margin-top: 30px; margin-bottom: 15px; color: #2c3e5a;">
+            <i class="fas fa-toolbox"></i> 主要施工工具清单
+        </h3>
+        
+        <div class="tools-grid">
+            <div class="tool-item">
+                <i class="fas fa-ruler"></i>
+                <div>激光水平仪</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-hammer"></i>
+                <div>冲击钻</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-bolt"></i>
+                <div>PPR热熔器</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-screwdriver"></i>
+                <div>扭矩扳手</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-tachometer-alt"></i>
+                <div>试压泵</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-cut"></i>
+                <div>角磨机</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-plug"></i>
+                <div>万用表</div>
+            </div>
+            <div class="tool-item">
+                <i class="fas fa-paint-roller"></i>
+                <div>硅胶枪</div>
             </div>
         </div>
     </div>
 
     <div class="footer-note">
-        <p><strong><i class="fas fa-exclamation-triangle"></i> 重要提示：</strong> 适老化洗手池的设计和施工需严格遵守《无障碍设计规范》(GB50763-2012)及《老年人照料设施建筑设计标准》(JGJ450-2018)。</p>
-        <ol style="margin-top:10px; margin-left:20px;">
-            <li>本页面三维模型由 Sketchfab 用户 <strong>风车树下</strong> 创建与分享，遵循 <strong>CC Attribution</strong> 许可协议。</li>
-            <li>洗漱台剖面图需保存为 <strong>section_image.png</strong> 并放置于此HTML文件同一目录下，页面将自动加载显示。</li>
-            <li>适老化设计应充分考虑使用者个体差异，建议施工前进行现场适应性测试。</li>
+        <p><strong><i class="fas fa-clipboard-check"></i> 施工验收标准：</strong></p>
+        <ol style="margin-top: 10px; margin-left: 20px;">
+            <li>所有尺寸符合设计要求，误差≤3mm</li>
+            <li>安全扶手承载力测试≥135kg，无松动</li>
+            <li>给水管道试压0.8MPa/30分钟无渗漏</li>
+            <li>排水通畅，无积水，存水弯水封正常</li>
+            <li>电气设备功能正常，接地可靠</li>
+            <li>台面边缘圆角处理，无尖锐棱角</li>
+            <li>紧急呼叫按钮响应正常，信号通畅</li>
         </ol>
     </div>
 
     <!-- 洗漱台剖面图放大模态框 -->
     <div class="modal" id="sectionModal">
         <button class="close-modal" id="closeSectionModal">&times;</button>
-        <div class="zoom-indicator" id="zoomIndicator">缩放: 100%</div>
         <div class="modal-content">
             <img id="modalImage" src="" alt="洗漱台剖面图 - 放大查看">
         </div>
-        <div class="image-info" id="imageInfo">洗漱台剖面图 - 适老化洗手池设计</div>
         <div class="modal-controls">
             <button class="modal-btn" id="zoomInBtn">
                 <i class="fas fa-search-plus"></i> 放大
@@ -745,9 +909,6 @@
             </button>
             <button class="modal-btn" id="resetZoomBtn">
                 <i class="fas fa-sync-alt"></i> 重置
-            </button>
-            <button class="modal-btn" id="rotateBtn">
-                <i class="fas fa-redo"></i> 旋转
             </button>
         </div>
     </div>
@@ -767,7 +928,7 @@
                     execution-while-out-of-viewport 
                     execution-while-not-rendered 
                     web-share 
-                    src="https://sketchfab.com/models/dbb26e1513004995ba7d8379e3af0c66/embed?autospin=1&autostart=1&preload=1"
+                    src="https://sketchfab.com/models/f4c002003a6b45408c7fd5586e435926/embed?autospin=1&preload=1"
                     style="width:100%; height:100%; border:none;">
             </iframe>
         </div>
@@ -776,6 +937,7 @@
     <script>
         // 图片加载处理
         function handleImageLoad() {
+            console.log('剖面图加载成功');
             document.getElementById('errorMessage').style.display = 'none';
             document.getElementById('loadingMessage').style.display = 'none';
             
@@ -789,12 +951,22 @@
         }
         
         function handleImageError() {
-            document.getElementById('errorMessage').style.display = 'block';
-            document.getElementById('loadingMessage').style.display = 'none';
-            
-            // 尝试加载本地图片
+            console.log('剖面图加载失败，尝试加载本地图片');
             const img = document.getElementById('sectionImage');
-            img.src = 'section_image.png';
+            const errorDiv = document.getElementById('errorMessage');
+            const loadingDiv = document.getElementById('loadingMessage');
+            
+            // 如果还没有尝试加载本地图片
+            if (!img.dataset.triedLocal) {
+                img.dataset.triedLocal = true;
+                loadingDiv.style.display = 'flex';
+                errorDiv.style.display = 'none';
+                img.src = 'section_image.png';
+            } else {
+                // 已经尝试了本地图片，仍然失败
+                loadingDiv.style.display = 'none';
+                errorDiv.style.display = 'block';
+            }
         }
         
         // 洗漱台剖面图模态框控制
@@ -805,57 +977,39 @@
         const zoomInBtn = document.getElementById('zoomInBtn');
         const zoomOutBtn = document.getElementById('zoomOutBtn');
         const resetZoomBtn = document.getElementById('resetZoomBtn');
-        const rotateBtn = document.getElementById('rotateBtn');
-        const zoomIndicator = document.getElementById('zoomIndicator');
         
         let currentScale = 1;
-        let currentRotation = 0;
         
         function openImageModal(imageSrc) {
             modalImage.src = imageSrc;
             sectionModal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
             
-            // 重置缩放和旋转
+            // 重置缩放
             currentScale = 1;
-            currentRotation = 0;
             updateImageTransform();
         }
         
         function updateImageTransform() {
-            modalImage.style.transform = `scale(${currentScale}) rotate(${currentRotation}deg)`;
-            zoomIndicator.textContent = `缩放: ${Math.round(currentScale * 100)}%`;
-            
-            // 如果旋转了，显示旋转角度
-            if (currentRotation !== 0) {
-                zoomIndicator.textContent += ` | 旋转: ${currentRotation}°`;
-            }
+            modalImage.style.transform = `scale(${currentScale})`;
         }
         
         // 图片缩放功能
         zoomInBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            currentScale = Math.min(currentScale * 1.2, 5); // 最大放大5倍
+            currentScale = Math.min(currentScale * 1.2, 5);
             updateImageTransform();
         });
         
         zoomOutBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            currentScale = Math.max(currentScale / 1.2, 0.2); // 最小缩小到0.2倍
+            currentScale = Math.max(currentScale / 1.2, 0.2);
             updateImageTransform();
         });
         
         resetZoomBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             currentScale = 1;
-            currentRotation = 0;
-            updateImageTransform();
-        });
-        
-        rotateBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            currentRotation += 90;
-            if (currentRotation >= 360) currentRotation = 0;
             updateImageTransform();
         });
         
@@ -863,51 +1017,17 @@
         sectionModal.addEventListener('wheel', function(e) {
             e.preventDefault();
             if (e.deltaY < 0) {
-                // 向上滚动，放大
                 currentScale = Math.min(currentScale * 1.1, 5);
             } else {
-                // 向下滚动，缩小
                 currentScale = Math.max(currentScale / 1.1, 0.2);
             }
             updateImageTransform();
-        });
-        
-        // 图片拖拽功能
-        let isDragging = false;
-        let startX, startY, translateX = 0, translateY = 0;
-        
-        modalImage.addEventListener('mousedown', function(e) {
-            if (currentScale <= 1) return; // 只有放大后才允许拖拽
-            
-            isDragging = true;
-            startX = e.clientX - translateX;
-            startY = e.clientY - translateY;
-            modalImage.style.cursor = 'grabbing';
-        });
-        
-        document.addEventListener('mousemove', function(e) {
-            if (!isDragging) return;
-            
-            e.preventDefault();
-            translateX = e.clientX - startX;
-            translateY = e.clientY - startY;
-            
-            modalImage.style.transform = `scale(${currentScale}) rotate(${currentRotation}deg) translate(${translateX}px, ${translateY}px)`;
-        });
-        
-        document.addEventListener('mouseup', function() {
-            isDragging = false;
-            modalImage.style.cursor = 'grab';
         });
         
         // 关闭模态框
         closeSectionModal.addEventListener('click', function() {
             sectionModal.style.display = 'none';
             document.body.style.overflow = 'auto';
-            
-            // 重置拖拽位置
-            translateX = 0;
-            translateY = 0;
         });
         
         // 点击模态框背景关闭
@@ -915,10 +1035,6 @@
             if (e.target === sectionModal) {
                 sectionModal.style.display = 'none';
                 document.body.style.overflow = 'auto';
-                
-                // 重置拖拽位置
-                translateX = 0;
-                translateY = 0;
             }
         });
         
@@ -946,15 +1062,15 @@
         
         // 页面加载后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('适老化洗手池页面已加载');
+            console.log('适老化洗手池施工指南页面已加载');
             
-            // 为挑战项添加点击效果
-            document.querySelectorAll('.challenge-item').forEach(item => {
-                item.addEventListener('click', function() {
-                    this.style.transform = 'scale(1.02)';
+            // 为材料标签添加点击效果
+            document.querySelectorAll('.material-tag').forEach(tag => {
+                tag.addEventListener('click', function() {
+                    this.style.backgroundColor = '#d1e7ff';
                     setTimeout(() => {
-                        this.style.transform = '';
-                    }, 200);
+                        this.style.backgroundColor = '#e8f4fc';
+                    }, 300);
                 });
             });
             
@@ -967,10 +1083,10 @@
                     handleImageLoad();
                 }
             } else {
-                document.getElementById('loadingMessage').style.display = 'block';
+                document.getElementById('loadingMessage').style.display = 'flex';
             }
             
-            // 为放大按钮添加点击事件（备用，图片容器已有点击事件）
+            // 为放大按钮添加点击事件
             document.getElementById('enlargeSectionBtn').addEventListener('click', function() {
                 const img = document.getElementById('sectionImage');
                 if (img.src && img.naturalHeight > 0) {
@@ -992,7 +1108,7 @@
                     }
                 }
                 
-                // +/- 键缩放图片
+                // 在模态框中，+/- 键控制缩放
                 if (sectionModal.style.display === 'flex') {
                     if (e.key === '+' || e.key === '=') {
                         e.preventDefault();
@@ -1005,12 +1121,6 @@
                     } else if (e.key === '0') {
                         e.preventDefault();
                         currentScale = 1;
-                        currentRotation = 0;
-                        updateImageTransform();
-                    } else if (e.key === 'r' || e.key === 'R') {
-                        e.preventDefault();
-                        currentRotation += 90;
-                        if (currentRotation >= 360) currentRotation = 0;
                         updateImageTransform();
                     }
                 }
