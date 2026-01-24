@@ -1,4 +1,3 @@
-#洗漱台
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -598,9 +597,9 @@
                 </button>
             </div>
             <div class="section-image-container" id="sectionImageContainer">
-                <!-- 图片已更新为您提供的新链接 -->
+                <!-- 图片已更新为您提供的最新链接 -->
                 <img id="sectionImage" 
-                     src="https://files.imagetourl.net/uploads/1769133403711-4dc6afc0-af5e-4b75-848d-c7278f6f4a6a.png" 
+                     src="https://files.imagetourl.net/uploads/1769239864686-9f6bbc9d-c336-4463-9447-5fd4bca52cbc.png" 
                      alt="适老化洗漱台剖面图 - 包含尺寸标注和材料说明"
                      onload="handleImageLoad()"
                      onerror="handleImageError()">
@@ -640,7 +639,7 @@
             <div class="highlight-item">
                 <h4><i class="fas fa-ruler-combined"></i> 关键尺寸要求</h4>
                 <p><strong>台面高度：</strong>75-80cm（适合坐姿与站姿）</p>
-                <p><strong>下方净空：</strong>高≥68cm，深≥48cm（轮椅可进入）</p>
+                <p><strong>下方净空：</strong>高≥65cm，深≥48cm（轮椅可进入）</p> <!-- 修改此处：68cm改为65cm -->
                 <p><strong>安全扶手：</strong>距地75-85cm，承载力≥135kg</p>
                 <p><strong>前方空间：</strong>直径≥150cm（轮椅回转）</p>
                 <div style="margin-top: 10px;">
@@ -708,7 +707,7 @@
                     <td><strong>洗手池柜体</strong></td>
                     <td>防潮实木多层板，厚度≥18mm</td>
                     <td>E0级环保标准，防水涂层</td>
-                    <td>悬空安装，底部离地≥68cm，使用M8膨胀螺栓固定于墙体</td>
+                    <td>悬空安装，底部离地≥65cm，使用M8膨胀螺栓固定于墙体</td> <!-- 修改此处：68cm改为65cm -->
                 </tr>
                 <tr>
                     <td><strong>人造石台面</strong></td>
